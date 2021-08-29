@@ -112,9 +112,19 @@ Dependencia
 
 sudo apt-get install python3-serial
 
-Display images
-https://rees52.com/diy-raspberry-pi/1134-how-to-interface-7-inch-resistive-touch-screen-lcd-with-raspberry-pi-3-rs118
+## Instalar gstreamer
 
+apt-get update
+apt-get upgrade
+apt install g++ cmake pkg-config
+apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x
+
+
+# Utils
+
+apt-get install feh mousepad v4l-utils
+
+# No organizado
 
 Recompilar kernel rpi
 
