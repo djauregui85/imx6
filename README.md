@@ -123,6 +123,7 @@ apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins
 # Utils
 
 apt-get install feh mousepad v4l-utils
+apt-get install docker docker-compose
 
 # No organizado
 

@@ -45,10 +45,10 @@ gst-launch-1.0 v4l2src device=/dev/video0 num-buffers=1 ! video/x-raw, format=YU
 gst-launch-1.0 v4l2src device=/dev/video0 num-buffers=300 ! video/x-raw, format=YUY2, width=1280, height=960, pixel-aspect-ratio=1/1, framerate=15/2, colorimetry=2:4:5:1, interlace-mode=progressive ! multifilesink location=test-%02d.yuy2
 
 ## multiples fotos jpeg
-gst-launch-1.0 v4l2src device=/dev/video0 num-buffers=10 ! video/x-raw, format=YUY2, width=1280, height=960, pixel-aspect-ratio=1/1, framerate=30/1, colorimetry=2:4:5:1, interlace-mode=progressive ! jpegenc ! multifilesink location=test-%02d.jpg
+gst-launch-1.0 v4l2src device=/dev/video2 num-buffers=10 ! video/x-raw, format=YUY2, width=640, height=480, pixel-aspect-ratio=1/1, framerate=30/1, colorimetry=2:4:5:1, interlace-mode=progressive ! jpegenc ! multifilesink post-messages=true location=test-%02d.jpg
 
-# VER VIDEO DE LA CAMARA 
-gst-launch-1.0 -v v4l2src device=/dev/video0 ! video/x-raw, format=YUY2, width=640, height=480, pixel-aspect-ratio=1/1, framerate=30/1, colorimetry=2:4:5:1, interlace-mode=progressive ! clockoverlay font-desc=\"Sans, 48\" ! videoconvert ! autovideosink
+# VER VIDEO DE LA CAMARA, anadir marca de tiemo
+gst-launch-1.0 -v v4l2src device=/dev/video0 ! video/x-raw, format=YUY2, width=640, height=480, pixel-aspect-ratio=1/1, framerate=30/1, colorimetry=2:4:5:1, interlace-mode=progressive ! clockoverlay time-format="%D %H:%M:%S.%s" font-desc=\"Sans, 20\" ! videoconvert ! autovideosink
 
 
 
@@ -98,3 +98,12 @@ v4l2-ctl -d /dev/video0 --list-formats-ext
 [video4linux2,v4l2 @ 0x5652617176c0] Compressed:       mjpeg :          Motion-JPEG : 160x120 176x144 320x240 352x288 640x480 960x720
 [video4linux2,v4l2 @ 0x5652617176c0] Raw       :     yuyv422 :           YUYV 4:2:2 : 160x120 176x144 320x240 352x288 640x480 960x720 1280x960
 /dev/video0: Immediate exit requested
+
+
+
+# Integracion
+
+El arduino eniva un "OK" via serial, que puede servir para la interaccion
+readOK
+
+* Devolver un ok cuando tome la foto

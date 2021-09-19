@@ -15,7 +15,7 @@ int main(int arg, char *argv[]) {
     //         nullptr);
 
     pipeline = gst_parse_launch(
-            "v4l2src device=/dev/video0 num-buffers=1 ! jpegenc ! filesink location=/opt/sources/output/ctest.jpg",
+            "v4l2src device=/dev/video2 num-buffers=1 ! jpegenc ! filesink location=ctest.jpg",
             nullptr);
 
     // start playing
