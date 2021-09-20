@@ -29,8 +29,6 @@ GST_DEBUG=3 gst-launch-1.0 v4l2src device=/dev/video0 ! image/jpeg, width=640,he
 
 gst-launch-1.0 filesrc location=song.ogg ! decodebin ! tee name=t ! queue ! audioconvert ! audioresample ! autoaudiosink t. ! queue ! audioconvert ! goom ! videoconvert ! autovideosink
 
-
-
 # Funciona para tomar foto
 gst-launch-1.0 v4l2src device=/dev/video2 num-buffers=1 ! jpegenc ! filesink location=test.jpg
 
